@@ -1,0 +1,29 @@
+# Java / Maven
+medical-platform/target/
+medical-platform/storage/
+*.class
+
+# Next.js / Node
+medical-platform-frontend/node_modules/
+medical-platform-frontend/.next/
+medical-platform-frontend/out/
+medical-platform-frontend/coverage/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+**/application-local.properties
+**/application-local.yml
+
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local archives and generated scratch files
+*.zip
+replace.py
+script.py

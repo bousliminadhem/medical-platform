@@ -1,0 +1,43 @@
+{
+  "name": "medical-platform-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^7.0.1",
+    "axios": "^1.7.2",
+    "clsx": "^2.1.1",
+    "js-cookie": "^3.0.5",
+    "lucide-react": "^0.408.0",
+    "next": "^16.4.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^9",
+    "eslint-config-next": "^16.4.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "overrides": {
+    "glob": "^14.0.3",
+    "rimraf": "^6.1.3",
+    "minimatch": "^11.0.3",
+    "postcss": "^8.5.6",
+    "zod": "^4.6.7"
+  }
+}

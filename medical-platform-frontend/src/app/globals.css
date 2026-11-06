@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Apple SF Pro Embedded Typeface ── */
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  src: local('SF Pro Display'), local('SF Pro Display Regular'), local('SF Pro'),
+       url('/fonts/sf-pro-display_regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 500;
+  src: local('SF Pro Display Medium'),
+       url('/fonts/sf-pro-display_medium.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 600;
+  src: local('SF Pro Display Semibold'),
+       url('/fonts/sf-pro-display_semibold.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 700;
+  src: local('SF Pro Display Bold'),
+       url('/fonts/sf-pro-display_bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 300;
+  src: local('SF Pro Text Light'),
+       url('/fonts/sf-pro-text_light.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 400;
+  src: local('SF Pro Text'), local('SF Pro Text Regular'),
+       url('/fonts/sf-pro-text_regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 600;
+  src: local('SF Pro Text Semibold'),
+       url('/fonts/sf-pro-text_semibold.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* Also alias 'SF Pro' to SF Pro Display */
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('SF Pro'), local('SF Pro Display'),
+       url('/fonts/sf-pro-display_regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 500;
+  src: local('SF Pro Medium'),
+       url('/fonts/sf-pro-display_medium.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: local('SF Pro Semibold'),
+       url('/fonts/sf-pro-display_semibold.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('SF Pro Bold'),
+       url('/fonts/sf-pro-display_bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --brand-emerald: #00C982;
+    --canvas-bg: #F8F9FB;
+    --canvas-text: #0F172A;
+  }
+
+  /* Universal Apple SF Pro Typeface Enforcement across all elements */
+  *, *::before, *::after, html, body, button, input, select, textarea, table, th, td, span, p, h1, h2, h3, h4, h5, h6, a {
+    font-family: var(--font-sf-pro), "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  }
+
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  /* 
+   * Dynamic Canvas Background
+   * Light mode: Clean, soft off-white canvas with luminous clinical aura
+   * Dark mode: Deep midnight charcoal canvas
+   */
+  body {
+    @apply min-h-screen antialiased transition-colors duration-200;
+  }
+
+  html.light body {
+    background-color: #F8F9FB;
+    background-image: 
+      radial-gradient(ellipse 60% 40% at 50% -10%, rgba(0, 201, 130, 0.04), transparent),
+      radial-gradient(circle 900px at 100% 100%, rgba(13, 148, 136, 0.02), transparent);
+    color: #0F172A;
+  }
+
+  html.dark body {
+    background-color: #090A0E;
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 201, 130, 0.06), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 100%, rgba(13, 148, 136, 0.04), transparent);
+    color: #F8FAFC;
+  }
+
+  /* Minimalist clinical scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-300/60 dark:bg-zinc-700/60 rounded-full hover:bg-zinc-400/80 dark:hover:bg-zinc-600 transition;
+  }
+}
+
+@layer components {
+  /* ── Niche Medical Design System Primitives ── */
+
+  /* Primary Action: Refined Clinical Emerald */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-xl
+           bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5
+           text-xs font-semibold tracking-wide shadow-subtle transition-all duration-200
+           hover:shadow-glow-sm active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-emerald-500/30
+           disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100;
+  }
+
+  /* Secondary Action: Elegant border button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl
+           border border-zinc-200 bg-white text-zinc-700 shadow-soft
+           hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-950
+           dark:border-white/[0.1] dark:bg-obsidian-850 dark:text-zinc-300
+           dark:hover:border-white/[0.2] dark:hover:bg-obsidian-800 dark:hover:text-white
+           px-4 py-2.5 text-xs font-medium tracking-wide transition-all duration-200
+           active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-600
+           disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100;
+  }
+
+  /* Danger Action */
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl
+           border border-red-200 bg-red-50 text-red-600 shadow-subtle
+           hover:border-red-300 hover:bg-red-100
+           dark:border-red-500/25 dark:bg-red-950/30 dark:text-red-400
+           dark:hover:border-red-500/40 dark:hover:bg-red-900/40 dark:hover:text-red-300
+           px-4 py-2.5 text-xs font-medium tracking-wide transition-all duration-200
+           active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-red-500/30
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  /* Form Input */
+  .input {
+    @apply block w-full rounded-xl
+           border border-zinc-200 bg-white text-zinc-900 placeholder-zinc-400
+           hover:border-zinc-300 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500/15
+           dark:border-white/[0.1] dark:bg-obsidian-900/90 dark:text-zinc-100 dark:placeholder-zinc-500
+           dark:hover:border-white/[0.18] dark:focus:border-brand/70 dark:focus:bg-obsidian-850 dark:focus:ring-brand/15
+           px-3.5 py-2.5 text-sm transition-all duration-200
+           disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-zinc-100 dark:disabled:bg-obsidian-950;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-semibold text-zinc-700 dark:text-zinc-300 tracking-wide;
+  }
+
+  /* 
+   * UI Component Card:
+   * Light mode: Clean, soft off-white background with subtle border and soft shadow
+   * Dark mode: Elegant elevated obsidian card
+   */
+  .card {
+    @apply rounded-2xl
+           border border-zinc-200/80 bg-white text-zinc-900 shadow-soft
+           dark:border-white/[0.08] dark:bg-obsidian-900/95 dark:text-zinc-100 dark:shadow-elevation
+           p-6 backdrop-blur-xl transition-all duration-200;
+  }
+
+  .form-error {
+    @apply mt-1.5 text-xs text-red-500 font-medium;
+  }
+
+  .badge-active {
+    @apply inline-flex items-center gap-1.5 rounded-full whitespace-nowrap
+           border border-emerald-500/30 bg-emerald-50 text-emerald-700
+           dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400
+           px-2.5 py-0.5 text-xs font-medium tracking-wide;
+  }
+
+  .badge-inactive {
+    @apply inline-flex items-center gap-1.5 rounded-full whitespace-nowrap
+           border border-zinc-200 bg-zinc-100 text-zinc-600
+           dark:border-zinc-700/60 dark:bg-zinc-800/40 dark:text-zinc-400
+           px-2.5 py-0.5 text-xs font-medium tracking-wide;
+  }
+}
