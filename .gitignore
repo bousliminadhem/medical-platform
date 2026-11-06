@@ -24,6 +24,7 @@ medical-platform-frontend/coverage/
 Thumbs.db
 
 # Local archives and generated scratch files
+Cours/
 *.zip
 replace.py
 script.py
